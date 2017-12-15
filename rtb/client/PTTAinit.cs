@@ -178,3 +178,9 @@ function loadMainMenu()
    Canvas.setContent( MainMenuGui );
    Canvas.setCursor("DefaultCursor");
 }
+
+//XNight Vision
+exec("./xnvision.cs");
+
+//XNight Vision
+exec("./xnvision.cs");

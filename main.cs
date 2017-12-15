@@ -4,7 +4,7 @@
 //-----------------------------------------------------------------------------
 
 $baseMods   = "common";
-$userMods   = "fps";
+$userMods   = "rtb";
 $displayHelp = false;
 
 
