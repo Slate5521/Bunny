@@ -135,13 +135,13 @@ function initClient()
    exec("./scripts/faceprintselect.cs");
    exec("./scripts/printselect.cs");
    exec("./scripts/EditorGUI.cs");
-   exec("./scripts/botOpGUI.cs");
+   exec("./scripts/botOpGUI.cs");			// Modified by Bac's (?)
    exec("./scripts/adminGui.cs");			// Modified by Bac's
    exec("./scripts/pttaGui.cs");			// Bac's, previously in PTTAExec.cs
    exec("./scripts/pttaVoting.cs");			// Bac's, previously in PTTAExec.cs
    // Default player key bindings
    exec("./scripts/default.bind.cs");		// Modified by Bac's
-   exec("./config2.cs");
+   exec("./config.cs");						// Modified by Bac's
    exec("./version.cs");
 
 
