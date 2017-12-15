@@ -196,7 +196,7 @@ function onServerCreated()
    exec("./inventorycommands.cs");
    exec("./Brickprints.cs");
    exec("./environment.cs");
-   exec("./Radar.cs");				// Bac's
+   exec("./pttaRadar.cs");			// Bac's
 
    // Keep track of when the game started
    $Game::StartTime = $Sim::Time;
