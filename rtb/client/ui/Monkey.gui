@@ -37,7 +37,7 @@ new GuiControl(Monkey) {
          minExtent = "8 2";
          visible = "1";
          helpTag = "0";
-         bitmap = "~/client/Menu.png";
+         bitmap = "./Menu.png";
          wrap = "0";
       };
       new GuiBitmapCtrl() {
@@ -49,7 +49,7 @@ new GuiControl(Monkey) {
          minExtent = "8 2";
          visible = "1";
          helpTag = "0";
-         bitmap = "~/client/MenuNameMonkey.png";
+         bitmap = "./MenuNameMonkey.png";
          wrap = "0";
       };
       new GuiButtonCtrl() {

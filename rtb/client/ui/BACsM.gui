@@ -37,7 +37,7 @@ new GuiControl(BACsM) {
          minExtent = "8 2";
          visible = "1";
          helpTag = "0";
-         bitmap = "~/client/Menu.png";
+         bitmap = "./Menu.png";
          wrap = "0";
       };
       new GuiBitmapCtrl() {
@@ -49,7 +49,7 @@ new GuiControl(BACsM) {
          minExtent = "8 2";
          visible = "1";
          helpTag = "0";
-         bitmap = "~/client/MenuName.png";
+         bitmap = "./MenuName.png";
          wrap = "0";
       };
       new GuiScrollCtrl() {
