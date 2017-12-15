@@ -89,7 +89,7 @@ function onStart()
 
    // Load the scripts that start it all...
 %PTTAstart = 0;
-   exec("./client/PTTAinit.cs");
+   exec("./client/init.cs");
    exec("./server/PTTAinit.cs");
 if(%PTTAstart $= 0)
 {

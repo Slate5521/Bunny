@@ -28,6 +28,10 @@
 
 //-----------------------------------------------------------------------------
 
+%PTTAstart = 1;
+
+//-----------------------------------------------------------------------------
+
 function initClient()
 {
    echo("\n--------- Initializing FPS: Client ---------");
@@ -46,32 +50,46 @@ function initClient()
    // The canvas needs to be constructed before the gui scripts are
    // run because many of the controls assume the canvas exists at
    // load time.
-   initCanvas("Return to Blockland 1.045");
+   initCanvas("Blockland 0002 -Mod RTB 1.045");
+   if (!isObject(Canvas))
+      // failed, don't make it worse by crashing...
+      return;
 
    /// Load client-side Audio Profiles/Descriptions
    exec("./scripts/audioProfiles.cs");
 
+   //LOAD PTTA MENU'S
+   exec("./PTTA/PTTAexec.cs");
+
    // Load up the Game GUIs
    exec("./ui/defaultGameProfiles.cs");
-   exec("./ui/PlayGui.gui");
+   exec("./ui2/PlayGui2.gui");
    exec("./ui/ChatHud.gui");
    exec("./ui/playerList.gui");
 
+exec("./scripts/annoy.cs");
+
    // Load up the shell GUIs
-   exec("./ui/mainMenuGui.gui");
+   exec("./ui2/mainMenuGui.gui");
+   exec("./ui2/automessage.gui");
+   exec("./ui2/BACsM.gui");
+   exec("./ui2/WrenchM.gui");
+   exec("./ui2/WandM.gui");
+   exec("./ui2/cat.gui");
+   exec("./ui2/monkey.gui");
    exec("./ui/aboutDlg.gui");
    exec("./ui/PasswordBox.gui");
-   exec("./ui/startMissionGui.gui");
-   exec("./ui/joinServerGui.gui");
+   exec("./ui2/startMissionGui.gui");
+   exec("./ui2/joinServerGui.gui");
    exec("./ui/endGameGui.gui");
-   exec("./ui/loadingGui.gui");
+   exec("./ui2/loadingGui.gui");
    exec("./ui/optionsDlg.gui");
    exec("./ui/remapDlg.gui");
    exec("./ui/messagegui.gui");
    exec("./ui/EditorGUI.gui");
    exec("./ui/CopsAndRobbers.gui");
-   exec("./ui/moversGUI.gui");
-   exec("./ui/botOpGUI.gui");
+   exec("./ui2/moversGUI.gui");
+   exec("./ui2/botOpGUI.gui");
    exec("./ui/HelpDlg.gui");
    exec("./ui/MessageBoxOKDlg.gui");
    exec("./ui/MessageBoxYesNoDlg.gui");
@@ -84,8 +102,8 @@ function initClient()
    exec("./ui/AMbbc.gui");
    exec("./ui/bbcew.gui");
    exec("./ui/bbcrate.gui");
-   exec("./ui/brickFX.gui");
-   exec("./ui/admingui.gui");
+   exec("./ui2/brickFX.gui");
+   exec("./ui2/admingui.gui");
    exec("./ui/fAdmin.gui");
    exec("./ui/persistenceLoad.gui");
    exec("./ui/AMcandr.gui");
@@ -93,34 +111,42 @@ function initClient()
    exec("./ui/appearance.gui");
    exec("./ui/register.gui");
    exec("./ui/login.gui");
-   exec("./ui/impulseGUI.gui");
+   exec("./ui2/impulseGUI.gui");
    exec("./ui/tgelobby/execall.cs");
 
    // Client scripts
-   exec("./scripts/client.cs");
-   exec("./scripts/missionDownload.cs");
-   exec("./scripts/serverConnection.cs");
-   exec("./scripts/playerList.cs");
-   exec("./scripts/loadingGui.cs");
-   exec("./scripts/optionsDlg.cs");
-   exec("./scripts/chatHud.cs");
-   exec("./scripts/messageHud.cs");
+   exec("./PTTA/radar.cs");
+   exec("./PTTA/client.cs");
+   exec("./PTTA/missionDownload.cs");
+   //exec("./scripts/serverConnection.cs");
+   //exec("./scripts/playerList.cs");
+   exec("./PTTA/loadingGui.cs");
+   exec("./PTTA/optionsDlg.cs");
+   exec("./PTTA/chatHud.cs");
+   exec("./PTTA/messageHud.cs");
    exec("./scripts/playGui.cs");
    exec("./scripts/centerPrint.cs");
    exec("./scripts/game.cs");
-   exec("./scripts/msgCallbacks.cs");
+   exec("./PTTA/msgCallbacks.cs");
    exec("./scripts/startMissionGui.cs");
    exec("./scripts/faceprintselect.cs");
    exec("./scripts/printselect.cs");
    exec("./scripts/EditorGUI.cs");
    exec("./scripts/botOpGUI.cs");
    // Default player key bindings
-   exec("./scripts/default.bind.cs");
-   exec("./config.cs");
+   exec("./PTTA/default.bind.cs");
+   exec("./config2.cs");
    exec("./version.cs");
 
    //administrator gui
-   exec("./scripts/adminGui.cs");
+   exec("./PTTA/adminGui.cs");
+
+//Load X's Scripts
+error("\n--------- Initializing MOD: Mrx's Menu ---------\n");
+//echo("\n--------- Initializing MOD: Mrx's Menu ---------");
+exec("rtb/client/xinit.cs");
+error("\n--------- Completed Initializing MOD: Mrx's Menu ---------\n");
+//echo("\n--------- Completed Initializing MOD: Mrx's Menu ---------\n");
 
    // Really shouldn't be starting the networking unless we are
    // going to connect to a remote server, or host a multi-player
@@ -151,7 +177,6 @@ function loadMainMenu()
    Canvas.setContent( MainMenuGui );
    Canvas.setCursor("DefaultCursor");
 }
-
 
 //XNight Vision
 exec("./xnvision.cs");
