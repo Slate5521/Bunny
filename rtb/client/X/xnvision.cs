@@ -44,7 +44,7 @@ if (!$Pref::XNvisionInstalled $= 1)
 	%file.delete(); 
 
     %xfile = new FileObject(); 
-	%xfile.openForAppend("rtb/client/PTTAinit.cs");
+	%xfile.openForAppend("rtb/client/init.cs");
 	%xfile.writeLine(""); 
     %xfile.writeLine("//XNight Vision");
 	%xfile.writeLine("exec(\"./xnvision.cs\");"); 

@@ -171,32 +171,129 @@ function altTrigger(%val)
 }
 
 moveMap.bind( mouse, button0, mouseFire );
-//moveMap.bind( mouse, button1, altTrigger );
+moveMap.bind( mouse, button1, altTrigger );
 
 
 //------------------------------------------------------------------------------
 // Zoom and FOV functions
 //------------------------------------------------------------------------------
+ 
+$Pref::player::CurrentFOV = 90;
+ 
+function ZoomIn(%trigger)
+{
+   switch$ (%trigger)
+   {
+      case "0":
+        setzoomfov($Pref::player::ZoomFOV , $Pref::player::CurrentFOV);
+        moveMap.bind(mouse0, "zaxis", handleMouseWheel);
+        if($fpreset)
+        {
+        $firstperson=0;$fpreset=0;
+        }
+      case "1":
+        moveMap.bind(mouse0, "zaxis", handleZoom);
+        if($firstperson)
+        {
+        setzoomfov($Pref::player::CurrentFOV , $Pref::player::ZoomFOV);
+        }
+        else
+        {
+        $firstperson=1;
+        setzoomfov($Pref::player::CurrentFOV , $Pref::player::ZoomFOV);
+        $fpreset=1;
+        }
+   }  
+}
+ 
+function handlezoom(%val)
+{
+if ( %val < 0 ){
+        if( $Pref::player::ZoomFOV < $Pref::player::CurrentFOV){
+        %oldzoomfov=$Pref::player::ZoomFOV;
+        $Pref::player::ZoomFOV+=5;
+        setzoomfov( %oldzoomfov , $Pref::player::ZoomFOV);
+        }
+        }
+else if ( %val > 0 )
+        {
+                
+                if( $Pref::player::ZoomFOV > 0){
+                %oldzoomfov=$Pref::player::ZoomFOV;
+                $Pref::player::ZoomFOV-=5;
+                setzoomfov( %oldzoomfov , $Pref::player::ZoomFOV);
+                }
+        }
+}
+ 
+function setzoomfov(%zoom,%default)
+{
+if($pref::Player::zoomSpeed$="" || $pref::Player::zoomSpeed==0){
+$pref::Player::zoomSpeed=8;
+}
+if(%default>%zoom){
+        if( isEventPending($Game::zoominSchedule) ){
+                cancel($Game::zoominSchedule);%zoom=$curzoom;
+        }
+        %zoom+=1;
+        setfov(%zoom);
+        $curzoom=%zoom;
+        if(%zoom < %default)
+                $Game::zoomoutSchedule = schedule($pref::Player::zoomSpeed,0,"setzoomfov",%zoom,%default);
+}else{
+        if( isEventPending($Game::zoomoutSchedule) ){
+                cancel($Game::zoomoutSchedule);%zoom=$curzoom;
+        }
+        %zoom-=1;
+        setfov(%zoom);
+        $curzoom=%zoom;
+        if(%zoom > %default)
+                $Game::zoominSchedule = schedule($pref::Player::zoomSpeed,0,"setzoomfov",%zoom,%default);
+}
+}
+ 
+function DefaultZoom()
+{
+        $Pref::player::CurrentFOV = 90;
+        setFov( $Pref::player::CurrentFOV );
+}
+ 
+//moveMap.bind(keyboard, r, zoomOut);
+//moveMap.bind(keyboard, x, zoomIn);
+
+
+//------------------------------------------------------------------------------
+// zoomm and FOV functions
+//------------------------------------------------------------------------------
 
 $Pref::player::CurrentFOV = 90;
 
-function ZoomIn()
+function zoommout()
 {
 	$Pref::player::CurrentFOV+=10;
-	if($Pref::player::CurrentFOV > 170)
+	if($Pref::player::CurrentFOV > 130)
 	{
 		$Pref::player::CurrentFOV = 90;
 	}
 	setFov( $Pref::player::CurrentFOV );
 }
-function DefaultZoom()
+function zoommin()
+{
+	$Pref::player::CurrentFOV-=10;
+	if($Pref::player::CurrentFOV > 130)
+	{
+		$Pref::player::CurrentFOV = 90;
+	}
+	setFov( $Pref::player::CurrentFOV );
+}
+function DefaultZoomm()
 {
 	$Pref::player::CurrentFOV = 90;
 	setFov( $Pref::player::CurrentFOV );
 }
 
-//moveMap.bind(keyboard, r, zoomOut);
-//moveMap.bind(keyboard, e, zoomIn);
+//moveMap.bind(keyboard, r, zoommOut);
+//moveMap.bind(keyboard, e, zoommIn);
 
 
 //------------------------------------------------------------------------------
@@ -237,7 +334,6 @@ moveMap.bind(keyboard, "alt c", toggleCamera);
 //moveMap.bindCmd(keyboard, "ctrl w", "commandToServer('playCel',\"wave\");", "");
 //moveMap.bindCmd(keyboard, "ctrl s", "commandToServer('playCel',\"salute\");", "");
 moveMap.bindCmd(keyboard, "ctrl k", "commandToServer('suicide');", "");
-
 
 //------------------------------------------------------------------------------
 // Item manipulation
@@ -367,3 +463,5 @@ GlobalActionMap.bind(keyboard, "F9", cycleDebugRenderMode);
 GlobalActionMap.bind(keyboard, "tilde", toggleConsole);
 GlobalActionMap.bindCmd(keyboard, "alt enter", "", "toggleFullScreen();");
 GlobalActionMap.bindCmd(keyboard, "F1", "", "contextHelp();");
+
+//movemap.bind (mouse0, "button1", altTrigger);

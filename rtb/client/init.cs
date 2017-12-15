@@ -58,9 +58,6 @@ function initClient()
    /// Load client-side Audio Profiles/Descriptions
    exec("./scripts/audioProfiles.cs");
 
-   //LOAD PTTA MENU'S
-   exec("./PTTA/PTTAexec.cs");
-
    // Load up the Game GUIs
    exec("./ui/defaultGameProfiles.cs");
    exec("./ui/PlayGui.gui");
@@ -112,33 +109,41 @@ function initClient()
    exec("./ui/login.gui");
    exec("./ui/impulseGUI.gui");			// Modified by Bac's
    exec("./ui/tgelobby/execall.cs");
+   
+   exec("./ui/pttaVoting.gui");			// Previously PTTAExec.cs:
+   exec("./ui/pttaGuiserver.gui");		// ...
+   exec("./ui/pttaGuipersonal.gui");	// ...
+   exec("./ui/pttaGui.gui");			// ...
+   exec("./ui/pttaChangeMap.gui");		// ...
+   exec("./ui/pttaVoting.gui");			// ...
 
    // Client scripts
-   exec("./PTTA/radar.cs");
-   exec("./PTTA/client.cs");
-   exec("./PTTA/missionDownload.cs");
-   //exec("./scripts/serverConnection.cs");
-   //exec("./scripts/playerList.cs");
-   exec("./PTTA/loadingGui.cs");
-   exec("./PTTA/optionsDlg.cs");
-   exec("./PTTA/chatHud.cs");
-   exec("./PTTA/messageHud.cs");
+   exec("./scripts/pttaRadar.cs"); 			// Bac's
+   exec("./scripts/client.cs");				// Modified by Bac's
+   exec("./scripts/missionDownload.cs");	// Modified by Bac's
+   exec("./scripts/serverConnection.cs");	// Modified by Bac's
+   exec("./scripts/playerList.cs");			// Modified by Bac's
+   exec("./scripts/loadingGui.cs");			// Modified by Bac's
+   exec("./scripts/optionsDlg.cs");			// Modified by Bac's
+   exec("./scripts/chatHud.cs");			// Modified by Bac's
+   exec("./scripts/messageHud.cs");			// Modified by Bac's
    exec("./scripts/playGui.cs");
    exec("./scripts/centerPrint.cs");
    exec("./scripts/game.cs");
-   exec("./PTTA/msgCallbacks.cs");
+   exec("./scripts/msgCallbacks.cs");		// Modified by Bac's
    exec("./scripts/startMissionGui.cs");
    exec("./scripts/faceprintselect.cs");
    exec("./scripts/printselect.cs");
    exec("./scripts/EditorGUI.cs");
    exec("./scripts/botOpGUI.cs");
+   exec("./scripts/adminGui.cs");			// Modified by Bac's
+   exec("./scripts/pttaGui.cs");			// Bac's, previously in PTTAExec.cs
+   exec("./scripts/pttaVoting.cs");			// Bac's, previously in PTTAExec.cs
    // Default player key bindings
-   exec("./PTTA/default.bind.cs");
+   exec("./scripts/default.bind.cs");		// Modified by Bac's
    exec("./config2.cs");
    exec("./version.cs");
 
-   //administrator gui
-   exec("./PTTA/adminGui.cs");
 
 //Load X's Scripts
 error("\n--------- Initializing MOD: Mrx's Menu ---------\n");
