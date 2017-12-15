@@ -1,4 +1,3 @@
-exec("./serverfilter.gui");
 function querysort(%a){JS_serverList.sort(%a);}
 //---------------------------------------- 
 function JoinServerGui::onWake() 

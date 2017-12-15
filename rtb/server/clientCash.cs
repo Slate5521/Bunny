@@ -1,1 +1,1 @@
-$ClientCashlocal = "100";
+$ClientCashlocal = "0";

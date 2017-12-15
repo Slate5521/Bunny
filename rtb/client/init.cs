@@ -63,33 +63,32 @@ function initClient()
 
    // Load up the Game GUIs
    exec("./ui/defaultGameProfiles.cs");
-   exec("./ui2/PlayGui2.gui");
+   exec("./ui/PlayGui.gui");
    exec("./ui/ChatHud.gui");
    exec("./ui/playerList.gui");
 
-exec("./scripts/annoy.cs");
-
    // Load up the shell GUIs
-   exec("./ui2/mainMenuGui.gui");
-   exec("./ui2/automessage.gui");
-   exec("./ui2/BACsM.gui");
-   exec("./ui2/WrenchM.gui");
-   exec("./ui2/WandM.gui");
-   exec("./ui2/cat.gui");
-   exec("./ui2/monkey.gui");
+   exec("./ui/mainMenuGui.gui");		// Modified by Bac's
+   exec("./ui/automessage.gui");		// Bac's
+   exec("./ui/BACsM.gui");				// Bac's
+   exec("./ui/WrenchM.gui");			// Bac's
+   exec("./ui/WandM.gui");				// Bac's
+   exec("./ui/cat.gui");				// Bac's
+   exec("./ui/monkey.gui");				// Bac's
    exec("./ui/aboutDlg.gui");
    exec("./ui/PasswordBox.gui");
-   exec("./ui2/startMissionGui.gui");
-   exec("./ui2/joinServerGui.gui");
+   exec("./ui/startMissionGui.gui");	// Modified by Bac's
+   exec("./ui/serverfilter.gui");		// Bac's
+   exec("./ui/joinServerGui.gui");		// Modified by Bac's
    exec("./ui/endGameGui.gui");
-   exec("./ui2/loadingGui.gui");
+   exec("./ui/loadingGui.gui");			// Modified by Bac's
    exec("./ui/optionsDlg.gui");
    exec("./ui/remapDlg.gui");
    exec("./ui/messagegui.gui");
    exec("./ui/EditorGUI.gui");
    exec("./ui/CopsAndRobbers.gui");
-   exec("./ui2/moversGUI.gui");
-   exec("./ui2/botOpGUI.gui");
+   exec("./ui/moversGUI.gui");			// Modified by Bac's (?)
+   exec("./ui/botOpGUI.gui");			// Modified by Bac's
    exec("./ui/HelpDlg.gui");
    exec("./ui/MessageBoxOKDlg.gui");
    exec("./ui/MessageBoxYesNoDlg.gui");
@@ -102,8 +101,8 @@ exec("./scripts/annoy.cs");
    exec("./ui/AMbbc.gui");
    exec("./ui/bbcew.gui");
    exec("./ui/bbcrate.gui");
-   exec("./ui2/brickFX.gui");
-   exec("./ui2/admingui.gui");
+   exec("./ui/brickFX.gui");			// Modified by Bac's
+   exec("./ui/admingui.gui");
    exec("./ui/fAdmin.gui");
    exec("./ui/persistenceLoad.gui");
    exec("./ui/AMcandr.gui");
@@ -111,7 +110,7 @@ exec("./scripts/annoy.cs");
    exec("./ui/appearance.gui");
    exec("./ui/register.gui");
    exec("./ui/login.gui");
-   exec("./ui2/impulseGUI.gui");
+   exec("./ui/impulseGUI.gui");			// Modified by Bac's
    exec("./ui/tgelobby/execall.cs");
 
    // Client scripts
