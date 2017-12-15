@@ -4,12 +4,12 @@
 //#
 //########################
 
-exec("./BlackLetterCan.cs");
-exec("./LetterCan.cs");
+exec("./letterCan.cs");
 exec("./EditorWand.cs");
-exec("./hammer.cs");
-exec("./screwdriver.cs");
+exec("./BlackLetterCan.cs");
 exec("./sprayCan.cs");
+exec("./hammer.cs");
+exec("./TextureCan.cs");
 exec("./wand.cs");
 exec("./wrench.cs");
 exec("./key.cs");

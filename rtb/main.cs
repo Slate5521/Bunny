@@ -88,17 +88,10 @@ function onStart()
    echo("\n--------- Initializing MOD: RTB ---------");
 
    // Load the scripts that start it all...
-%PTTAstart = 0;
-   exec("./client/init.cs");
-   exec("./server/PTTAinit.cs");
-if(%PTTAstart $= 0)
-{
    exec("./client/init.cs");
    exec("./server/init.cs");
-}
    exec("./data/init.cs");
    exec("./rss/main.cs");
-//   exec("./community/init.cs");
 
    //load ip banlist
    exec("./server/ipBanList.cs");

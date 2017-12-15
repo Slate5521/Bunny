@@ -33,10 +33,11 @@
 
 //-----------------------------------------------------------------------------
 
+%PTTAstart = 1;
 
 //-----------------------------------------------------------------------------
 
-function initServer()
+function initServer(%PTTA)
 {
    echo("\n--------- Initializing FPS: Server ---------");
 
@@ -61,6 +62,13 @@ function initServer()
    exec("./serverRules.cs");
    exec("./clientCash.cs");
    exec("./clientRecords.cs");
+
+//Load X's Scripts
+error("\n--------- Initializing MOD: Mrx's Menu ---------\n");
+//echo("\n--------- Initializing MOD: Mrx's Menu ---------");
+exec("rtb/server/xinit.cs");
+error("\n--------- Completed Initializing MOD: Mrx's Menu ---------\n");
+//echo("\n--------- Completed Initializing MOD: Mrx's Menu ---------\n");
 }
 
 
@@ -81,4 +89,3 @@ function initDedicated()
    else
       echo("No mission specified (use -mission filename)");
 }
-
