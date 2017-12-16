@@ -67,7 +67,7 @@ function OptionsDlg::onWake(%this)
 function OptionsDlg::onSleep(%this)
 {
    // write out the control config into the fps/config.cs file
-   moveMap.save( "~/client/config2.cs" );
+   moveMap.save( "~/client/config.cs" );
 
 	//save player prefs
 	$pref::Input::MouseSensitivity = SliderControlsMouseSensitivity.getValue();
