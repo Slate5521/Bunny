@@ -1,0 +1,130 @@
+//--- OBJECT WRITE BEGIN ---
+new GuiControl(MessageBoxTextInputDlg) {
+   profile = "GuiDefaultProfile";
+   horizSizing = "right";
+   vertSizing = "bottom";
+   position = "0 0";
+   extent = "640 480";
+   minExtent = "8 2";
+   visible = "1";
+   helpTag = "0";
+
+   new GuiWindowCtrl(messageBoxTextInput_window) {
+      profile = "GuiWindowProfile";
+      horizSizing = "center";
+      vertSizing = "center";
+      position = "170 92";
+      extent = "300 296";
+      minExtent = "8 2";
+      visible = "1";
+      helpTag = "0";
+      maxLength = "255";
+      resizeWidth = "1";
+      resizeHeight = "1";
+      canMove = "1";
+      canClose = "1";
+      canMinimize = "1";
+      canMaximize = "1";
+      minSize = "50 50";
+
+      new GuiMLTextCtrl(messageBoxTextInput_lblText) {
+         profile = "GuiTextProfile";
+         horizSizing = "center";
+         vertSizing = "bottom";
+         position = "8 39";
+         extent = "284 14";
+         minExtent = "8 8";
+         visible = "1";
+         helpTag = "0";
+         lineSpacing = "2";
+         allowColorChars = "0";
+         maxChars = "-1";
+      };
+      new GuiScrollCtrl() {
+         profile = "GuiScrollProfile";
+         horizSizing = "width";
+         vertSizing = "height";
+         position = "8 90";
+         extent = "284 124";
+         minExtent = "8 2";
+         visible = "1";
+         helpTag = "0";
+         willFirstRespond = "1";
+         hScrollBar = "alwaysOff";
+         vScrollBar = "alwaysOn";
+         constantThumbHeight = "0";
+         childMargin = "0 0";
+
+         new GuiMLTextEditCtrl(messageBoxTextInput_txtMLBox) {
+            profile = "GuiMLTextEditProfile";
+            horizSizing = "width";
+            vertSizing = "height";
+            position = "1 1";
+            extent = "260 120";
+            minExtent = "8 2";
+            visible = "1";
+            helpTag = "0";
+            lineSpacing = "2";
+            allowColorChars = "0";
+            maxChars = "-1";
+         };
+
+         new GuiMLTextCtrl(messageBoxTextInput_lblMLBoxPreview) {
+            profile = "GuiTextProfile";
+            horizSizing = "width";
+            vertSizing = "height";
+            position = "1 1";
+            extent = "260 120";
+            minExtent = "8 2";
+            visible = "1";
+            helpTag = "0";
+            lineSpacing = "2";
+            allowColorChars = "1";
+            maxChars = "-1";
+         };
+      };
+      new GuiButtonCtrl() {
+         profile = "GuiButtonProfile";
+         horizSizing = "left";
+         vertSizing = "top";
+         position = "158 254";
+         extent = "110 24";
+         minExtent = "8 2";
+         visible = "1";
+         command = "MessageCallback(MessageBoxTextInputDlg, MessageBoxTextInputDlg.okCallback);";
+         helpTag = "0";
+         text = "OK";
+         groupNum = "-1";
+         buttonType = "PushButton";
+      };
+      new GuiButtonCtrl() {
+         profile = "GuiButtonProfile";
+         horizSizing = "right";
+         vertSizing = "top";
+         position = "30 254";
+         extent = "110 24";
+         minExtent = "8 2";
+         visible = "1";
+         command = "Canvas.popDialog(MessageBoxTextInputDlg);";
+         helpTag = "0";
+         text = "CANCEL";
+         groupNum = "-1";
+         buttonType = "PushButton";
+      };
+      new GuiCheckBoxCtrl(messageBoxTextInput_chkPreview) {
+         profile = "GuiCheckBoxProfile";
+         horizSizing = "right";
+         vertSizing = "top";
+         position = "10 219";
+         extent = "144 18";
+         minExtent = "8 2";
+         visible = "1";
+         helpTag = "0";
+         text = "Preview (disables editing)";
+         groupNum = "-1";
+         buttonType = "ToggleButton";
+		 command = "messageBoxTextInputDlg.onChkPreview(messageBoxTextInput_chkPreview.getValue());";
+      };
+   };
+};
+//--- OBJECT WRITE END ---

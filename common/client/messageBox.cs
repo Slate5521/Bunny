@@ -106,3 +106,54 @@ function CloseMessagePopup()
    Canvas.popDialog( MessagePopupDlg );
 }
 
+//------------------------------------------------------------------------------
+// Message input dialog:
+//------------------------------------------------------------------------------
+
+function MessageBoxTextInputDlg(%title, %message, %showPreviewChk, %defaultText, %okCallback) {
+	%frame = nameToID(messageBoxTextInput_window);
+	%frame.setText(%title);
+	%this = nameToID(MessageBoxTextInputDlg);
+	
+	Canvas.pushDialog(MessageBoxTextInputDlg);
+	
+	MBSetText(nameToID(messageBoxTextInput_lblText), %frame, %message);
+	
+	nameToID(messageBoxTextInput_chkPreview).visible = %showPreviewChk;
+
+	%this.onChkPreview(false);
+	
+	%this.setMLText(%defaultText);
+	
+	%this.okCallback = %okCallback;	
+}
+
+function MessageBoxTextInputDlg::onChkPreview(%this, %val) {
+	%editCtrl       = nameToID(messageBoxTextInput_txtMLBox);
+	%previewCtrl    = nameToID(messageBoxTextInput_lblMLBoxPreview);
+	
+	
+	if(%val) { // Preview
+		%previewCtrl.setText(%editCtrl.getText());
+		%previewCtrl.bunnyReveal();
+		
+		%editCtrl.bunnyHide();
+	} else {   // Don't preview
+		%previewCtrl.bunnyHide();
+		
+		%editCtrl.bunnyReveal();
+	}
+}
+
+function MessageBoxTextInputDlg::onSleep(%this) {
+	%this.okCallback = "";
+	%this.onChkPreview(false);
+}
+
+function MessageBoxTextInputDlg::setMLText(%this, %text) {
+	nameToID(messageBoxTextInput_txtMLBox).setText(%text);
+}
+
+function MessageBoxTextInputDlg::getMLText(%this) {
+	return nameToID(messageBoxTextInput_txtMLBox).getText();
+}

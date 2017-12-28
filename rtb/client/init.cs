@@ -56,62 +56,71 @@ function initClient()
 
    // Load up the Game GUIs
    exec("./ui/defaultGameProfiles.cs");
-   exec("./ui/PlayGui.gui");									//	[ ]
-   exec("./ui/ChatHud.gui");									//	[ ]
-   exec("./ui/playerList.gui");									//	[ ]
+   // exec("./ui/PlayGui.gui");									//	[ ]
+   // exec("./ui/ChatHud.gui");									//	[ ]
+   // exec("./ui/playerList.gui");									//	[ ]
 
-   // Load up the shell GUIs
-   exec("./ui/mainMenuGui.gui");		// Modified by Bac's		[ ]
-   exec("./ui/automessage.gui");		// Bac's					[ ]
-   exec("./ui/BACsM.gui");				// Bac's					[ ]
-   exec("./ui/WrenchM.gui");			// Bac's					[ ]
-   exec("./ui/WandM.gui");				// Bac's					[ ]
-   exec("./ui/cat.gui");				// Bac's					[ ]
-   exec("./ui/monkey.gui");				// Bac's					[ ]
-   exec("./ui/aboutDlg.gui");									//	[ ]
-   exec("./ui/PasswordBox.gui");								//  [ ]
-   exec("./ui/startMissionGui.gui");	// Modified by Bac's		[ ]
-   exec("./ui/serverfilter.gui");		// Bac's					[ ]
-   exec("./ui/joinServerGui.gui");		// Modified by Bac's		[ ]
-   exec("./ui/endGameGui.gui");									//	[ ]
-   exec("./ui/loadingGui.gui");			// Modified by Bac's		[ ]
-   exec("./ui/optionsDlg.gui");									//	[ ]
-   exec("./ui/remapDlg.gui");									//	[ ]
-   exec("./ui/messagegui.gui");									//	[ ]
-   exec("./ui/EditorGUI.gui");									//	[ ]
-   exec("./ui/CopsAndRobbers.gui");								//	[ ]
-   exec("./ui/moversGUI.gui");			// Modified by Bac's (?)	[ ]
-   exec("./ui/botOpGUI.gui");			// Modified by Bac's		[ ]
-   exec("./ui/HelpDlg.gui");									//	[ ]
-   exec("./ui/MessageBoxOKDlg.gui");							//	[ ]
-   exec("./ui/MessageBoxYesNoDlg.gui");							//	[ ]
-   exec("./ui/messageGUI.gui");									//	[ ]
-   exec("./ui/MessagePopupDlg.gui");							//	[ ]
-   exec("./ui/serverconfig.gui");								//	[ ]
-   exec("./ui/serverrulesgui.gui");								//	[ ]
-   exec("./ui/brickProperties.gui");							//	[ ]
-   exec("./ui/playerrights.gui");								//	[ ]
-   exec("./ui/AMbbc.gui");										//	[ ]
-   exec("./ui/bbcew.gui");										//	[ ]
-   exec("./ui/bbcrate.gui");									//	[ ]
-   exec("./ui/brickFX.gui");			// Modified by Bac's		[ ]
-   exec("./ui/admingui.gui");									//	[ ]
-   exec("./ui/fAdmin.gui");										//	[ ]
-   exec("./ui/persistenceLoad.gui");							//	[ ]
-   exec("./ui/AMcandr.gui");									//	[ ]
-   exec("./ui/AMdeathmatch.gui");								//	[ ]
-   exec("./ui/appearance.gui");									//	[ ]
-   exec("./ui/register.gui");									//	[ ]
-   exec("./ui/login.gui");										//	[ ]
-   exec("./ui/impulseGUI.gui");			// Modified by Bac's		[ ]
-   exec("./ui/tgelobby/execall.cs");							//	[ ]
+   // Load up the shell GUIs & their logic
+   exec("./scripts/bunnyControlHolder.cs");
+   exec("./ui/bunnyControlHolder.gui");
    
-   exec("./ui/pttaVoting.gui");			// Previously PTTAExec.cs:	[ ]
-   exec("./ui/pttaGuiserver.gui");		// ...						[ ]
-   exec("./ui/pttaGuipersonal.gui");	// ...						[ ]
-   exec("./ui/pttaGui.gui");			// ...						[ ]
-   exec("./ui/pttaChangeMap.gui");		// ...						[ ]
-   exec("./ui/pttaVoting.gui");			// ...						[ ]
+   exec("./ui/mainMenuGui.gui");
+   
+   exec("./scripts/startMissionGui.cs");
+   exec("./ui/startMissionGui.gui");
+   
+   exec("./ui/MessageBoxTextInputDlg.gui");
+   
+   // exec("./ui/automessage.gui");		// Bac's					[ ]
+   // exec("./ui/BACsM.gui");				// Bac's					[ ]
+   // exec("./ui/WrenchM.gui");			// Bac's					[ ]
+   // exec("./ui/WandM.gui");				// Bac's					[ ]
+   // exec("./ui/cat.gui");				// Bac's					[ ]
+   // exec("./ui/monkey.gui");				// Bac's					[ ]
+   // exec("./ui/aboutDlg.gui");									//	[ ]
+   // exec("./ui/PasswordBox.gui");								//  [ ]
+   // exec("./ui/serverfilter.gui");		// Bac's					[ ]
+   // exec("./ui/joinServerGui.gui");		// Modified by Bac's		[ ]
+   // exec("./ui/endGameGui.gui");									//	[ ]
+   // exec("./ui/loadingGui.gui");			// Modified by Bac's		[ ]
+   // exec("./ui/optionsDlg.gui");									//	[ ]
+   // exec("./ui/remapDlg.gui");									//	[ ]
+   // exec("./ui/messagegui.gui");									//	[ ]
+   // exec("./ui/EditorGUI.gui");									//	[ ]
+   // exec("./ui/CopsAndRobbers.gui");								//	[ ]
+   // exec("./ui/moversGUI.gui");			// Modified by Bac's (?)	[ ]
+   // exec("./ui/botOpGUI.gui");			// Modified by Bac's		[ ]
+   // exec("./ui/HelpDlg.gui");									//	[ ]
+   // exec("./ui/MessageBoxOKDlg.gui");							//	[ ]
+   // exec("./ui/MessageBoxYesNoDlg.gui");							//	[ ]
+   // exec("./ui/messageGUI.gui");									//	[ ]
+   // exec("./ui/MessagePopupDlg.gui");							//	[ ]
+   // exec("./ui/serverconfig.gui");								//	[ ]
+   // exec("./ui/serverrulesgui.gui");								//	[ ]
+   // exec("./ui/brickProperties.gui");							//	[ ]
+   // exec("./ui/playerrights.gui");								//	[ ]
+   // exec("./ui/AMbbc.gui");										//	[ ]
+   // exec("./ui/bbcew.gui");										//	[ ]
+   // exec("./ui/bbcrate.gui");									//	[ ]
+   // exec("./ui/brickFX.gui");			// Modified by Bac's		[ ]
+   // exec("./ui/admingui.gui");									//	[ ]
+   // exec("./ui/fAdmin.gui");										//	[ ]
+   // exec("./ui/persistenceLoad.gui");							//	[ ]
+   // exec("./ui/AMcandr.gui");									//	[ ]
+   // exec("./ui/AMdeathmatch.gui");								//	[ ]
+   // exec("./ui/appearance.gui");									//	[ ]
+   // exec("./ui/register.gui");									//	[ ]
+   // exec("./ui/login.gui");										//	[ ]
+   // exec("./ui/impulseGUI.gui");			// Modified by Bac's		[ ]
+   // exec("./ui/tgelobby/execall.cs");							//	[ ]
+   
+   // exec("./ui/factorsetgui.gui");		// Bac's					[ ]
+   // exec("./ui/pttaVoting.gui");			// Previously PTTAExec.cs:	[ ]
+   // exec("./ui/pttaGuiserver.gui");		// ...						[ ]
+   // exec("./ui/pttaGuipersonal.gui");	// ...						[ ]
+   // exec("./ui/pttaGui.gui");			// ...						[ ]
+   // exec("./ui/pttaChangeMap.gui");		// ...						[ ]
+   // exec("./ui/pttaVoting.gui");			// ...						[ ]
 
    // Client scripts
    exec("./scripts/pttaRadar.cs"); 			// Bac's			
@@ -127,7 +136,6 @@ function initClient()
    exec("./scripts/centerPrint.cs");							
    exec("./scripts/game.cs");									
    exec("./scripts/msgCallbacks.cs");		// Modified by Bac's
-   exec("./scripts/startMissionGui.cs");						
    exec("./scripts/faceprintselect.cs");
    exec("./scripts/printselect.cs");
    exec("./scripts/EditorGUI.cs");
@@ -177,9 +185,3 @@ function loadMainMenu()
    Canvas.setContent( MainMenuGui );
    Canvas.setCursor("DefaultCursor");
 }
-
-//XNight Vision
-exec("./xnvision.cs");
-
-//XNight Vision
-exec("./xnvision.cs");
