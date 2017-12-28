@@ -14,6 +14,9 @@ exec("./server/defaults.cs");
 exec("./client/prefs.cs");
 exec("./server/prefs.cs");
 
+// Server attributes
+exec("./server/serverAttributes.cs");
+
 // Refresh and load mod list
 exec("./mods/modsinit.cs");
 
